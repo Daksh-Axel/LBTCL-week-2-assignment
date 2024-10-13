@@ -68,7 +68,7 @@ describe('Evaluate submission', () => {
 
     it('should validate parent RBF', () => {
         for (const output of parentRbfTx.output) {
-            if (output.amount === 70) expect(output.scriptpubkey).toBe(parentTx.output.find(o => o.amount === 70).scriptpubkey);
+            if (output.amount === 70) expect(output.scriptpubkey).toStrictEqual(parentTx.output.find(o => o.amount === 70).scriptpubkey);
             else expect(output.amount).toBeLessThan(29.99999);
         }
         expect(parentRbfTx.input).toStrictEqual(parentTx.input);
